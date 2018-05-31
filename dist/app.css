@@ -1,0 +1,13 @@
+header {
+  background: teal;
+  padding: 1em;
+}
+
+.header-container {
+  display: flex;
+  align-items: center;
+}
+
+.search-container {
+  padding: 1em;
+}
