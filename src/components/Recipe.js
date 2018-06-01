@@ -9,7 +9,7 @@ export default class Recipes extends Component {
     return (
       <li>
         <h2>{recipe} by {category}</h2>
-        <a href={url} target="_blank">view recipe</a>
+        <a href={url} target="_blank">view recipes</a>
       </li>
     );
   }

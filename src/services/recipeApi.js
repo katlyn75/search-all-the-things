@@ -7,9 +7,9 @@ const get = url => fetch(url)
 
 
 
-export function search({categories},{ page=1, pageSize=5}) {
+export function search({category},{ page=1, pageSize=5}) {
   //const paging = `&page=${page}&pageSize=${pageSize}`;
-  const search = `?c=${categories}`;
+  const search = `?c=${category}`;
 
   //return get (`${BASE_URL}${paging}${recipes}`);
 return get (`${BASE_URL}${search}`);

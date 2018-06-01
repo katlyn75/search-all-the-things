@@ -9,6 +9,7 @@ import Recipes from './Recipe';
 export default class App extends Component {
 
   state = {
+    category: "",
     loading: false,
     error: null,
     totalResults: 0,
@@ -18,13 +19,14 @@ export default class App extends Component {
   };
 
   searchRecipes = () => {
-    const { recipes, page, perPage } = this.state;
+    const { category, page, perPage } = this.state;
 
     this.setState({ loading: true });
 
-    search({ recipes }, { page, perPage })
-      .then(({ meals, totalResults }) => {
-        this.setState({ recipes, totalResults, error: null });
+    search({ category }, { page, perPage })
+      .then(({ meals }) => {
+        this.setState({ meals, error: null });
+        console.log(meals);
       }, error => {
         this.setState({ error })
       })
@@ -32,8 +34,8 @@ export default class App extends Component {
   };
 
 
-  handleSearch = ({ search }) => {
-    this.setState({ recipes: search }, this.searchRecipes);
+  handleSearch = ({ category }) => {
+    this.setState({ category: category }, this.searchRecipes);
   };
 
   handlePage = ({ page }) => {
@@ -41,7 +43,7 @@ export default class App extends Component {
   };
 
   render() {
-    const { recipes, page } = this.state;
+    const { meals, page, loading } = this.state;
     return (
       <div>
         <header>
@@ -50,6 +52,7 @@ export default class App extends Component {
           </div>
           <div className="search-container">
             <Search onSearch={this.handleSearch}/>
+            {loading && <div>Loading...</div>}
           </div>
         </header>
         <main>
@@ -57,7 +60,7 @@ export default class App extends Component {
             <Paging
               page={page}
               onPage={this.handlePage}
-              recipes={recipes}/>
+              meals={meals}/>
           </section>
         </main>
       </div>
