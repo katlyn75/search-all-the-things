@@ -1,15 +1,15 @@
 import React, { Component } from 'react';
 
 export default class Paging extends Component {
-  handlePage(page) {
-    const { page } = this.props;
-
+  handlePage(increment) {
+    const { page, onPage } = this.props;
+    onPage({ page: page + increment });
   }
 
   render() {
-    const { page } = this.props;
+    const { totalResults, page, perPage } = this.props;
 
-    const totalPages = Math.ceil(totalResults/ perPage);
+    const totalPages = Math.ceil(totalResults / perPage);
 
     return (
       <div>
