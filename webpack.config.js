@@ -2,7 +2,7 @@
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const HtmlPlugin = require('html-webpack-plugin');
 
-const buildDir = "docs";
+const buildDir = 'docs';
 const path = `${__dirname}/${buildDir}`;
 
 
@@ -16,19 +16,19 @@ module.exports = {
     contentBase: `./${buildDir}`,
   },
   devtool:'inline-source-map',
-    plugins: [
-      new CleanWebpackPlugin(`${path}/bundle.*.js`),
-      new HtmlPlugin({ template: './src/index.html'})
-    ],
+  plugins: [
+    new CleanWebpackPlugin(`${path}/bundle.*.js`),
+    new HtmlPlugin({ template: './src/index.html' })
+  ],
   module: {
     rules: [
       {
-        test: '/\.js$/',
+        test: /\.js$/,
         loader: 'babel-loader',
         exclude: /node_modules/
       },
       {
-        test: '/\.css$/',
+        test: /\.css$/,
         use: [
           {
             loader: 'style-loader',
@@ -48,12 +48,12 @@ module.exports = {
         ]
       },
       {
-        test: /\.(jpg\png\svg)$/,
+        test: /\.(jpg|png|svg)$/,
         use: {
           loader: 'url-loader',
-          options: { limit: 5000},
+          options: { limit: 5000 },
         },
       }
     ]
   }
-}
+};
