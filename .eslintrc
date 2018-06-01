@@ -14,8 +14,7 @@
     "browser": true
   },
   "plugins": [
-    "babel",
-    "eslint-plugin-babel"
+    "babel"
   ],
   "extends": [
     "eslint:recommended",
