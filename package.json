@@ -1,7 +1,7 @@
 {
-  "name": "search-all-the-things",
+  "name": "recipe-nirvana",
   "version": "1.0.0",
-  "description": "App for searching all the news",
+  "description": "App for searching recipes",
   "main": "index.js",
   "scripts": {
     "build": "webpack --mode production",

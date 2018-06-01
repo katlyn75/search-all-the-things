@@ -4,10 +4,12 @@ header {
 }
 
 .header-container {
+  color: blue;
   display: flex;
   align-items: center;
 }
 
 .search-container {
+  color: black;
   padding: 1em;
 }
