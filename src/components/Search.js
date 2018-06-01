@@ -20,12 +20,12 @@ export default class Search extends Component {
     const { search } = this.state;
 
     return(
-      <form className="search-form" onSubmit={event => this.handleSubmit(event)}>
+      <form className="search-bar" onSubmit={event => this.handleSubmit(event)}>
         <label>
           Search Categories: &nbsp;
           <input value={search} onChange={this.handleChange}/>
         </label>
-        <button>Search</button>
+        <button className="search-button">Search</button>
       </form>
     );
   }
