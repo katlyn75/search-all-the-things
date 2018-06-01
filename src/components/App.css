@@ -4,12 +4,13 @@ header {
 }
 
 .header-container {
-  color: blue;
-  display: flex;
-  align-items: center;
+  color: black;
+  text-align: center;
 }
 
 .search-container {
   color: black;
   padding: 1em;
+  display: flex;
+  justify-content: space-between;
 }

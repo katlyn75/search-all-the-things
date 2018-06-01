@@ -1,28 +1,29 @@
 import React, { Component } from 'react';
 import styles from './App.css'
-//import { search } from '../services/menuApi';
+import { search } from '../services/recipeApi';
+import Search from './Search';
 import Paging from './Paging';
+import Recipes from './Recipe';
 
 
 export default class App extends Component {
 
   state = {
-    //ingredients: [],
     loading: false,
     error: null,
     totalResults: 0,
     page: 1,
     perPage: 5,
-    recipes: []
+    meals: []
   };
 
-  searchMenu = () => {
+  searchRecipes = () => {
     const { recipes, page, perPage } = this.state;
 
     this.setState({ loading: true });
 
     search({ recipes }, { page, perPage })
-      .then(({ recipes, totalResults }) => {
+      .then(({ meals, totalResults }) => {
         this.setState({ recipes, totalResults, error: null });
       }, error => {
         this.setState({ error })
@@ -36,7 +37,7 @@ export default class App extends Component {
   };
 
   handlePage = ({ page }) => {
-    this.setState({ page }, this.searchMenu);
+    this.setState({ page }, this.searchRecipes);
   };
 
   render() {
@@ -45,7 +46,7 @@ export default class App extends Component {
       <div>
         <header>
           <div className="header-container">
-            <h1>Search Recipes</h1>
+            <h1>Recipe Rescue</h1>
           </div>
           <div className="search-container">
             <Search onSearch={this.handleSearch}/>
