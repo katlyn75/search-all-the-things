@@ -11,6 +11,15 @@ header {
 .search-container {
   color: black;
   padding: 1em;
-  display: flex;
+  width: 95%;
   justify-content: space-between;
+  display: inline-block;
+}
+.page {
+  color: black;
+  padding: 2em;
+}
+
+.drop-down {
+  display: inline-block;
 }

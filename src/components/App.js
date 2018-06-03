@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
+import DropDown from 'react-dropdown';
 import styles from './App.css'
 import { search } from '../services/recipeApi';
 import Search from './Search';
 import Paging from './Paging';
-import Recipes from './Recipe';
+import Recipes from './Recipes';
+import Recipe from './Recipe'
 
 
 export default class App extends Component {
@@ -26,7 +28,6 @@ export default class App extends Component {
     search({ category }, { page, perPage })
       .then(({ meals }) => {
         this.setState({ meals, error: null });
-        console.log(meals);
       }, error => {
         this.setState({ error })
       })
@@ -56,7 +57,7 @@ export default class App extends Component {
           </div>
         </header>
         <main>
-          <section>
+          <section className= "page">
             <Paging
               page={page}
               onPage={this.handlePage}
