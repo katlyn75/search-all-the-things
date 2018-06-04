@@ -48,5 +48,8 @@ header {
 
 footer{
   color: black;
+  font-size: 14pt;
+  background-color: teal;
+  padding-top: 1em;
 }
 
