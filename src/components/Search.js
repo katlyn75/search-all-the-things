@@ -8,19 +8,15 @@ export default class Search extends Component {
 
   handleChange = ({ target }) => {
     this.setState({ category: target.value});
-    console.log('handling change', target.value);
   };
 
   handleSubmit = event => {
     event.preventDefault();
     this.props.onSearch(this.state);
-    console.log('handle submit');
-    
   };
 
   render(){
     const { category } = this.state;
-    //console.log(category);
 
     return(
       <form className="search-category" onSubmit={event => this.handleSubmit(event)}>

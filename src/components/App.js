@@ -19,11 +19,11 @@ export default class App extends Component {
   };
 
   searchRecipes = () => {
-    const { category, page, perPage } = this.state;
+    const { category, page } = this.state;
 
     this.setState({ loading: true });
 
-    search({ category }, { page, perPage })
+    search({ category }, { page })
       .then(({ meals }) => {
         this.setState({ recipes: meals, error: null });
       }, error => {
