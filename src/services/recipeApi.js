@@ -11,5 +11,5 @@ export function search({category},{ page=1, pageSize=5}) {
   const paging = `&page=${page}&pageSize=${pageSize}`;
   const search = `?c=${category}`;
 
-return get (`${BASE_URL}${search}${paging}`);
+return get (`${BASE_URL}${search}`);
 }

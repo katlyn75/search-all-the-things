@@ -25,8 +25,8 @@ export default class App extends Component {
     this.setState({ loading: true });
 
     search({ category }, { page, perPage })
-      .then(({ recipes, totalResults }) => {
-        this.setState({ recipes, totalResults, error: null });
+      .then(({ meals, totalResults }) => {
+        this.setState({ meals, error: null });
       }, error => {
         this.setState({ error })
       })
@@ -43,7 +43,7 @@ export default class App extends Component {
   };
 
   render() {
-    const { recipe, recipes, page, perPage, totalResults, loading, error } = this.state;
+    const { meals, page, loading } = this.state;
     return (
       <div>
         <header>
@@ -51,25 +51,18 @@ export default class App extends Component {
             <h1>Recipe Rescue</h1>
           </div>
           <div className="search-container">
-            {loading && <div>Loading...</div>}
-            {error && <div>Error :{ error.message}</div>}
             <label>
               <Search onSearch={this.handleSearch}/>
+              {loading && <div>Loading...</div>}
             </label>
           </div>
         </header>
         <main>
           <section className= "page">
-            <label>
-              <Search
-              search={search}
-              onSearch={this.handleSearch}/>
-              </label>
-              <Paging
-              totalResults={totalResults}
+            <Paging
               page={page}
-              onPage={this.handlePage}/>
-              <Recipes recipes={recipes}/>
+              onPage={this.handlePage}
+              meals={meals}/>
           </section>
           <footer>
           Recipe Nirvana || 2018

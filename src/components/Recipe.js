@@ -6,13 +6,10 @@ export default class Recipe extends Component {
     const { recipe } = this.props;
 
     return (
-      <ul>
-        <h2>
-        {recipe.map((recipes, i) => (
-          <Recipes key={i} recipes={recipes}/>
-        ))}
-        </h2>
-      </ul>
+      <li>
+        <h2>{recipe} by {category}</h2>
+        <a href={url} target="_blank">view recipes</a>
+      </li>
     );
   }
 }
