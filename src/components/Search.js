@@ -1,12 +1,9 @@
 import React, { Component } from 'react';
-//import ReactDropdown from 'react-dropdown';
-import './Search.css';
 
 export default class Search extends Component {
 
   state = {
-    category: '',
-    //options: ''
+    category: ''
   };
 
   handleChange = ({ target }) => {
@@ -22,9 +19,9 @@ export default class Search extends Component {
     const { category } = this.state;
 
     return(
-      <main>
-        <div className="categories"
-          onSelect={event => this._onSelect(event)}>
+      <form>
+        <div className="category"
+          onSubmit={event => this.handleSubmit(event)}>
           <label>
           Search Categories:&nbsp;
           <input value={category} onChange={this.handleChange}/>
@@ -33,7 +30,7 @@ export default class Search extends Component {
           Search
           </button>
         </div>
-      </main>
+      </form>
     );
   }
 }

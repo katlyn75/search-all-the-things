@@ -12,10 +12,10 @@ export default class Paging extends Component {
     const totalPages = Math.ceil(totalResults / perPage);
 
     return (
-      <div>
-        <span>Page {page} of {totalPages}</span>&nbsp;
-        <button onClick={() => this.handlePage(-1)} disable={page===1}>&lt; Prev</button>
-        <button onClick={() => this.handlePage(+1)} disable={page===totalPages}>Next&gt;</button>
+      <div className="page">
+        <span className="page-numbers">Page {page} of {totalPages}</span>&nbsp;
+        <button className="page-button"onClick={() => this.handlePage(-1)} disable={page===1}>&lt; Prev</button>
+        <button className="page-button" onClick={() => this.handlePage(+1)} disable={page===totalPages}>Next&gt;</button>
       </div>
     );
   }

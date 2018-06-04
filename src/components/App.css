@@ -1,5 +1,6 @@
 header {
   background: teal;
+  font-size: 24pt;
   padding: 1em;
 }
 
@@ -9,17 +10,43 @@ header {
 }
 
 .search-container {
+  font-size: 16pt;
   color: black;
+  display: inline;
   padding: 1em;
-  width: 95%;
   justify-content: space-between;
   display: inline-block;
 }
-.page {
-  color: black;
-  padding: 2em;
+
+.category {
+  display: inline-flex;
 }
 
-.drop-down {
-  display: inline-block;
+.page {
+  color: black;
+  width: 100%;
+  padding-top: 1em;
+  padding-left: 2em;
 }
+
+.page-numbers {
+  font-size: 18pt;
+  display: center;
+  padding-right: 1.5em;
+}
+
+.page-button {
+  color: blue;
+  display: flex space-around;
+  
+}
+
+.search-button {
+  height: 2em;
+  font-size: 1em;
+}
+
+footer{
+  color: black;
+}
+

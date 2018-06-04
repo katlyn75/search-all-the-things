@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-//import DropDown from 'react-dropdown';
 import styles from './App.css'
 import { search } from '../services/recipeApi';
 import Search from './Search';
@@ -17,7 +16,7 @@ export default class App extends Component {
     totalResults: 0,
     page: 1,
     perPage: 5,
-    meals: []
+    recipes: []
   };
 
   searchRecipes = () => {
@@ -26,8 +25,8 @@ export default class App extends Component {
     this.setState({ loading: true });
 
     search({ category }, { page, perPage })
-      .then(({ meals }) => {
-        this.setState({ meals, error: null });
+      .then(({ recipes, totalResults }) => {
+        this.setState({ recipes, totalResults, error: null });
       }, error => {
         this.setState({ error })
       })
@@ -44,7 +43,7 @@ export default class App extends Component {
   };
 
   render() {
-    const { meals, page, loading } = this.state;
+    const { recipe, recipes, page, perPage, totalResults, loading, error } = this.state;
     return (
       <div>
         <header>
@@ -52,17 +51,29 @@ export default class App extends Component {
             <h1>Recipe Rescue</h1>
           </div>
           <div className="search-container">
-            <Search onSearch={this.handleSearch}/>
             {loading && <div>Loading...</div>}
+            {error && <div>Error :{ error.message}</div>}
+            <label>
+              <Search onSearch={this.handleSearch}/>
+            </label>
           </div>
         </header>
         <main>
           <section className= "page">
-            <Paging
+            <label>
+              <Search
+              search={search}
+              onSearch={this.handleSearch}/>
+              </label>
+              <Paging
+              totalResults={totalResults}
               page={page}
-              onPage={this.handlePage}
-              meals={meals}/>
+              onPage={this.handlePage}/>
+              <Recipes recipes={recipes}/>
           </section>
+          <footer>
+          Recipe Nirvana || 2018
+          </footer>
         </main>
       </div>
     );

@@ -7,9 +7,11 @@ export default class Recipe extends Component {
 
     return (
       <ul>
+        <h2>
         {recipe.map((recipes, i) => (
           <Recipes key={i} recipes={recipes}/>
         ))}
+        </h2>
       </ul>
     );
   }
