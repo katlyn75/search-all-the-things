@@ -4,7 +4,6 @@ import { search } from '../services/recipeApi';
 import Search from './Search';
 import Paging from './Paging';
 import Recipes from './Recipes';
-import Recipe from './Recipe'
 
 
 export default class App extends Component {
@@ -25,10 +24,10 @@ export default class App extends Component {
     this.setState({ loading: true });
 
     search({ category }, { page, perPage })
-      .then(({ meals, totalResults }) => {
-        this.setState({ meals, error: null });
+      .then(({ meals }) => {
+        this.setState({ recipes: meals, error: null });
       }, error => {
-        this.setState({ error })
+        this.setState({ error });
       })
       .then(() => this.setState({ loading: false }));
   };
@@ -43,28 +42,28 @@ export default class App extends Component {
   };
 
   render() {
-    const { meals, page, loading } = this.state;
+    const { recipes, loading, totalResults, page, perPage, error } = this.state;
     return (
       <div>
         <header>
           <div className="header-container">
             <h1>Recipe Rescue</h1>
-          </div>
-          <div className="search-container">
             <label>
               <Search onSearch={this.handleSearch}/>
-              {loading && <div>Loading...</div>}
             </label>
           </div>
         </header>
         <main>
-          <section className= "page">
+          <section className= "page-results">
+            {loading && <div>Loading...</div>}
             <Paging
+              totalResults={totalResults}
               page={page}
-              onPage={this.handlePage}
-              meals={meals}/>
+              perPage={perPage}
+              onPage={this.handlePage}/>
+            <Recipes recipes={recipes}/>
           </section>
-          <footer>
+          <footer className="footer-text">
           Recipe Nirvana || 2018
           </footer>
         </main>

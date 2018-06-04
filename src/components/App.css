@@ -2,9 +2,6 @@ header {
   background: teal;
   font-size: 24pt;
   padding: 1em;
-}
-
-.header-container {
   color: black;
   text-align: center;
 }
@@ -46,10 +43,11 @@ header {
   font-size: 1em;
 }
 
-footer{
+.footer-text {
   color: black;
   font-size: 14pt;
+  text-align: center;
+  padding: 1em 1em 1em 1em;
   background-color: teal;
-  padding-top: 1em;
 }
 

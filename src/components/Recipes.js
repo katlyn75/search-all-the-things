@@ -1,18 +1,18 @@
 import React, { Component } from 'react';
+import Recipe from './Recipe';
 
 export default class Recipes extends Component {
 
   render() {
 
-    const {category} = this.props.recipes;
+    const { recipes } = this.props
 
     return (
-      <li>
-        <h2>{recipes} by {category}</h2>
-        {/* <a href={url} target="_blank">view recipes</a> */}
-        {/* <p>{description}</p> */}
-        <img src={urlToImage}/>
-      </li>
+      <ul>
+        {recipes.map((recipe, i) => (
+          <Recipe key={i} recipe={recipe}/>
+        ))}
+      </ul>
     );
   }
 }

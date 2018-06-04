@@ -7,7 +7,7 @@ const get = url => fetch(url)
 
 
 
-export function search({category},{ page=1, pageSize=5}) {
+export function search({category},{ page=1, pageSize=5 }) {
   const paging = `&page=${page}&pageSize=${pageSize}`;
   const search = `?c=${category}`;
 
