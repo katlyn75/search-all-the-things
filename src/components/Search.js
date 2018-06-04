@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-import ReactDropdown from 'react-dropdown';
+//import ReactDropdown from 'react-dropdown';
 import './Search.css';
 
 export default class Search extends Component {
 
   state = {
     category: '',
-    options: ''
+    //options: ''
   };
 
   handleChange = ({ target }) => {
@@ -19,17 +19,21 @@ export default class Search extends Component {
   };
 
   render(){
-    const { category, options } = this.state;
+    const { category } = this.state;
 
     return(
-      <div className="drop-down">
-      <Dropdown options={options} onChange={this._onSelect} value={defaultOption} placeholder="Select a category"/>
-        <label>
-          Search Categories: &nbsp;
+      <main>
+        <div className="categories"
+          onSelect={event => this._onSelect(event)}>
+          <label>
+          Search Categories:&nbsp;
           <input value={category} onChange={this.handleChange}/>
-        </label>
-        <button className="search-button">Search</button>
-      </div>
+          </label>
+          <button className="search-button">
+          Search
+          </button>
+        </div>
+      </main>
     );
   }
 }
