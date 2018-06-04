@@ -1,0 +1,53 @@
+header {
+  background: teal;
+  font-size: 24pt;
+  padding: 1em;
+  color: black;
+  text-align: center;
+}
+
+.search-container {
+  font-size: 16pt;
+  color: black;
+  display: inline;
+  padding: 1em;
+  justify-content: space-between;
+  display: inline-block;
+}
+
+.category {
+  display: inline-flex;
+}
+
+.page {
+  color: black;
+  width: 100%;
+  padding-top: 1em;
+  padding-left: 2em;
+}
+
+.page-numbers {
+  font-size: 18pt;
+  display: center;
+  padding-right: 1.5em;
+}
+
+.page-button {
+  color: blue;
+  display: flex space-around;
+  
+}
+
+.search-button {
+  height: 2em;
+  font-size: 1em;
+}
+
+.footer-text {
+  color: black;
+  font-size: 14pt;
+  text-align: center;
+  padding: 1em 1em 1em 1em;
+  background-color: teal;
+}
+
