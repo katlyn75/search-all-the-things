@@ -4,6 +4,7 @@ import Header from './Header';
 import Home from './Home';
 import Search from './Search';
 import Paging from './Paging';
+import RecipeDetail from './RecipeDetail';
 import styles from './App.css';
 
 
@@ -23,6 +24,7 @@ export default class App extends Component {
           <main>
             <Route exact path="/" component={Home}/>
             <Route path="/search" component={Search}/>
+            <Route path="/recipes/:id" component={RecipeDetail}/>
             {/* <section className= "page-results">
               {loading && <div>Loading...</div>}
               <Paging
