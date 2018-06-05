@@ -31,7 +31,7 @@ export default class App extends Component {
                 perPage={perPage}
                 onPage={this.handlePage}/>
               <Recipes recipes={recipes}/>
-            </section> */}
+            </section>  */}
             <footer className="footer-text">
             Recipe Nirvana || 2018
             </footer>
