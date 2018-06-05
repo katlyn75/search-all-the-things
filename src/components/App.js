@@ -2,11 +2,9 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Header from './Header';
 import Home from './Home';
-import styles from './App.css'
 import Search from './Search';
 import Paging from './Paging';
-
-
+import styles from './App.css';
 
 
 export default class App extends Component {
@@ -16,7 +14,7 @@ export default class App extends Component {
   };
 
   render() {
-    // const { recipes, loading, totalResults, page, perPage, error } = this.state;
+    // const { loading, totalResults, page, perPage, error } = this.state;
     return (
       
       <Router>
@@ -24,7 +22,7 @@ export default class App extends Component {
           <Header/>
           <main>
             <Route exact path="/" component={Home}/>
-            <Route exact path="/search" component={Search}/>
+            <Route path="/search" component={Search}/>
             {/* <section className= "page-results">
               {loading && <div>Loading...</div>}
               <Paging
