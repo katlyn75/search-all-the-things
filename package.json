@@ -4,7 +4,6 @@
   "description": "App for searching recipes",
   "main": "index.js",
   "scripts": {
-    "lint": "eslint .",
     "pretest": "npm run lint",
     "build": "webpack --mode production",
     "start": "webpack-dev-server --hot --open --mode development",
