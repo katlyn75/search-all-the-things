@@ -1,9 +1,31 @@
 import React, { Component } from 'react';
+import { search } from '../services/recipeApi';
+import Recipes from './Recipes';
 
 export default class Search extends Component {
 
   state = {
-    category: ''
+    category: '',
+    loading: false,
+    error: null,
+    totalResults: 0,
+    page: 1,
+    perPage: 5,
+    recipes: []
+  };
+
+  searchRecipes = () => {
+    const { category, page } = this.state;
+
+    this.setState({ loading: true });
+
+    search({ category }, { page })
+      .then(({ meals }) => {
+        this.setState({ recipes: meals, error: null });
+      }, error => {
+        this.setState({ error });
+      })
+      .then(() => this.setState({ loading: false }));
   };
 
   handleChange = ({ target }) => {
@@ -12,22 +34,30 @@ export default class Search extends Component {
 
   handleSubmit = event => {
     event.preventDefault();
-    this.props.onSearch(this.state);
+    this.handleSearch(this.state.category);
   };
 
+  handleSearch = category => {
+    this.setState({ category: category }, this.searchRecipes);
+  };
+
+
   render(){
-    const { category } = this.state;
+    const { category, recipes, error } = this.state;
 
     return(
-      <form className="search-category" onSubmit={event => this.handleSubmit(event)}>
-        <label>
-        Search Categories:&nbsp;
-          <input value={category} onChange={this.handleChange}/>
-        </label>
-        <button className="search-button">
-        Search
-        </button>
-      </form>
+      <div>
+        <form className="search-category" onSubmit={event => this.handleSubmit(event)}>
+          <label>
+          Search Categories:&nbsp;
+            <input value={category} onChange={this.handleChange}/>
+          </label>
+          <button className="search-button">
+          Search
+          </button>
+        </form>
+        {(!error && recipes) && <Recipes recipes={recipes}/>}
+      </div>
     );
   }
 }
