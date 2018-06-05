@@ -6,7 +6,7 @@ export default class Recipes extends Component {
   render() {
 
     const { recipes } = this.props
-
+    console.log(recipes);
     return (
       <ul>
         {recipes.map((recipe, i) => (
