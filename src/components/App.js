@@ -15,25 +15,25 @@ export default class App extends Component {
   };
 
   render() {
+
     // const { loading, totalResults, page, perPage, error } = this.state;
     return (
-      
       <Router>
         <div>
           <Header/>
           <main>
             <Route exact path="/" component={Home}/>
             <Route path="/search" component={Search}/>
-            <Route path="/recipes/:id" component={RecipeDetail}/>
-            {/* <section className= "page-results">
+            <Route path="/recipes/:id" render={({ match, history }) => {
+              return <RecipeDetail id={match.params.id} history={history}/>;}}/>
+              {/*className= "page-results">
               {loading && <div>Loading...</div>}
               <Paging
                 totalResults={totalResults}
                 page={page}
                 perPage={perPage}
                 onPage={this.handlePage}/>
-              <Recipes recipes={recipes}/>
-            </section>  */}
+              */}
             <footer className="footer-text">
             Recipe Nirvana || 2018
             </footer>

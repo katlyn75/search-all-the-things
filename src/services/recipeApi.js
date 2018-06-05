@@ -14,8 +14,8 @@ export function search({category},{ page=1, pageSize=5 }) {
 return get (`${BASE_URL}filter.php${search}`);
 }
 
-export function getDetails(id) {
+export function getRecipe(id) {
 
-  return get (`${BASE_URL}lookup.php?i=${id}`)
+return get (`${BASE_URL}lookup.php?i=${id}`)
 }
 //https://www.themealdb.com/api/json/v1/1/lookup.php?i=52772
