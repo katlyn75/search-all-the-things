@@ -1,16 +1,18 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+
 
 export default class Recipe extends Component {
 
   render() {
-    const { strMeal, strMealThumb } = this.props.recipe;
+    const { strMeal, strMealThumb, idMeal } = this.props.recipe;
 
     return (
       <li>
-        {/* <h2>{recipes} by {category}</h2> */}
-        {/* <a href={url} target="_blank">view recipes</a> */}
-        <p>{strMeal}</p>
-        <img src={strMealThumb}/>
+        <Link to={`/recipes/${idMeal}`}>
+          <p>{strMeal}</p>
+          <img src={strMealThumb}/>
+        </Link>
       </li>
     );
   }
