@@ -9,7 +9,7 @@ export default class RecipeDetail extends Component {
 
   componentDidMount() {
     getRecipe(this.props.id)
-      .then(recipe => this.setState(recipe));
+      .then(recipe => this.setState({recipe:recipe.meals[0]}));
       console.log(this.props.id);
   }
   
