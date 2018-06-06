@@ -3,19 +3,15 @@ import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-d
 import Header from './Header';
 import Home from './Home';
 import Search from './Search';
-//import Paging from './Paging';
+import Paging from './Paging';
 import RecipeDetail from './RecipeDetail';
 //import styles from './App.css';
 
 
 export default class App extends Component {
 
-  handlePage = ({ page }) => {
-    this.setState({ page }, this.searchRecipes);
-  };
-
   render() {
-    // const { loading, totalResults, page, perPage, error } = this.state;
+    
     return (
       <Router>
         <div>
@@ -24,17 +20,11 @@ export default class App extends Component {
             <Switch>
               <Route exact path="/" component={Home}/>
               <Route path="/search" component={Search}/>
+              <Route path="/paging" component={Paging}/>
               <Route path="/recipes/:id" render={({ match, history }) => {
                 return <RecipeDetail id={match.params.id} history={history}/>;}}/>
               <Redirect to="/"/>
-              {/*className= "page-results">
-              {loading && <div>Loading...</div>}
-              <Paging
-                totalResults={totalResults}
-                page={page}
-                perPage={perPage}
-                onPage={this.handlePage}/>
-              */}
+              
             </Switch>  
             <footer className="footer-text">
             Recipe Nirvana || 2018
