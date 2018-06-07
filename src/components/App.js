@@ -3,8 +3,8 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Header from './Header';
 import Home from './Home';
 import Search from './Search';
-import Paging from './Paging';
-import styles from './App.css';
+//import Paging from './Paging';
+//import styles from './App.css';
 
 
 export default class App extends Component {

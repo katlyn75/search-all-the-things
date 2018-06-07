@@ -5,7 +5,7 @@ export default class Recipes extends Component {
 
   render() {
 
-    const { recipes } = this.props
+    const { recipes } = this.props;
 
     return (
       <ul>

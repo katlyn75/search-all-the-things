@@ -29,7 +29,7 @@ export default class Search extends Component {
   };
 
   handleChange = ({ target }) => {
-    this.setState({ category: target.value});
+    this.setState({ category: target.value });
   };
 
   handleSubmit = event => {
@@ -45,7 +45,7 @@ export default class Search extends Component {
   render(){
     const { category, recipes, error } = this.state;
 
-    return(
+    return (
       <div>
         <form className="search-category" onSubmit={event => this.handleSubmit(event)}>
           <label>
