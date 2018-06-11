@@ -9,9 +9,11 @@ export function checkResponseData(response) {
   return response;
 }
 
-export function search({ category }) {//, { page = 1, pageSize = 5 }) {
-  // const paging = `&page=${page}&pageSize=${pageSize}`;
-  const search = `?c=${category}`;
+export function search(searchCategory)
+//, page, perPage)
+{
+  //const pageIndex = (page * perPage) - perPage;
+  const search = `?c=${searchCategory}`;
 
   return get (`${BASE_URL}${search}`);
 }
