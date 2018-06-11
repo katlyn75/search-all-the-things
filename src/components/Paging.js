@@ -1,9 +1,35 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 export default class Paging extends Component {
+
+  static propTypes = {
+    totalRecipes: PropTypes.number,
+    page: PropTypes.number,
+    perPage: PropTypes.number,
+    onPaging: PropTypes.func.isRequired
+  };
+  state = {
+    current: this.props.page || 1,
+  };
+
+  UNSAFE_componentWillReceiveProps({ page }) {
+    if(page !== this.state.current) {
+      this.setState({ current: page || 1 });
+    }
+  }
   handlePage(increment) {
-    const { page, onPage } = this.props;
-    onPage({ page: page + increment });
+    event.preventDefault();
+    const { page } = this.props;
+    this.setState({ current: page + increment }, () => {
+      this.callPage();
+    });
+  }
+
+  callPage() {
+    const { current } = this.state;
+    if(!current) return;
+    this.props.onPaging(current);
   }
 
   render() {

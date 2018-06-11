@@ -1,0 +1,3 @@
+exports[`SearchForm renders as designed 1`] = `
+<form onSubmit={[Function]}>
+  <input placeholder="Search" value="" onChange={[Function]}
