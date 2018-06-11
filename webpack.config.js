@@ -14,8 +14,7 @@ module.exports = {
     publicPath: '/'
   },
   devServer: {
-    contentBase: `./${buildDir}`,
-    historyApiFallback: true
+    contentBase: `./${buildDir}`
   },
   devtool:'inline-source-map',
   plugins: [
