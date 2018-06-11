@@ -1,4 +1,4 @@
-import { checkResponseData } from './booksApi';
+import { checkResponseData } from './recipeApi';
 
 describe('search response', () => {
 
